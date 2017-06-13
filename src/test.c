@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 10:21:19 2017 Mathias
-** Last update Mon Jun 12 19:04:52 2017 Mathias
+** Last update Tue Jun 13 08:50:14 2017 Mathias
 */
 
 #include "parser.h"
@@ -51,6 +51,7 @@ int main(int av, char **ac)
 	  free(tab[i]);
 	}
       free(tab);
+      return (0);
     }
   return (84);
 }
