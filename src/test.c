@@ -5,10 +5,63 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 10:21:19 2017 Mathias
-** Last update Tue Jun 13 08:50:14 2017 Mathias
+** Last update Tue Jun 13 09:37:02 2017 Mathias
 */
 
 #include "parser.h"
+
+void free_tab(char **tab, int st)
+{
+  int i;
+
+  i = 0;
+  while (tab[i] != NULL)
+    {
+      free(tab[i]);
+      i += 1;
+    }
+  free(tab);
+  exit(st);
+}
+
+void option_sequel(char **ac, char **tab)
+{
+  if (my_cmp_mod(ac[2], "-i") == 0 && my_cmp_mod(ac[3], "-e") != 0 &&
+      my_cmp_mod(ac[3], "-json") != 0 && my_cmp_mod(ac[4], "-e") == 0 &&
+      my_cmp_mod(ac[5], "-json") == 0)
+    printf("en construction\n");
+  else
+    free_tab(tab, 84);
+  free_tab(tab, 0);
+}
+
+void option(int av, char **ac, char **tab)
+{
+  if (av == 2)
+    disp_auto();
+  else if (av == 5)
+    {
+      if (my_cmp_mod(ac[4], "-e") == 0 && my_cmp_mod(ac[2], "-i") == 0 &&
+	  my_cmp_mod(ac[3], "-e") != 0 && my_cmp_mod(ac[3], "-json") == 0)
+	algo(tab, ac[3], 1);
+      else if (my_cmp_mod(ac[4], "-json") == 0 && my_cmp_mod(ac[2], "-i") == 0
+	       && my_cmp_mod(ac[3], "-e") != 0 &&
+	       my_cmp_mod(ac[3], "-json") != 0)
+	printf("en construction\n");
+      else
+	free_tab(tab, 84);
+    }
+  else if (av == 4)
+    {
+      if (my_cmp_mod(ac[2], "-i") == 0 && my_cmp_mod(ac[3], "-e") != 0 &&
+	  my_cmp_mod(ac[3], "-json") != 0)
+	algo(tab, ac[3], 0);
+      else
+	free_tab(tab, 84);
+    }
+  else if (av == 6)
+    option_sequel(ac, tab);
+}
 
 int main(int av, char **ac)
 {
@@ -28,29 +81,7 @@ int main(int av, char **ac)
 	tab = append_chartab(tab, str);
       close(fd);
       sort_file(tab);
-      if (av == 2)
-	disp_auto();
-      if (av == 5)
-	{
-	  if (my_cmp_mod(ac[4], "-e") == 0)
-	    algo(tab, ac[3], 1);
-	  else if (my_cmp_mod(ac[3], "-json") == 0)
-	    printf("en construction\n");
-	}
-      if (av == 4)
-	{
-	  if (my_cmp_mod(ac[2], "-i") == 0)
-	    algo(tab, ac[3], 0);
-	  else if (my_cmp_mod(ac[2], "-e") == 0)
-	    disp_auto();
-	}
-      int i;
-      for (i = 0; tab[i] != NULL; i += 1)
-	{
-	  /* printf("%s\n", tab[i]); */
-	  free(tab[i]);
-	}
-      free(tab);
+      option(av, ac, tab);
       return (0);
     }
   return (84);
