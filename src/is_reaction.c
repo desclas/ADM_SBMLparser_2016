@@ -5,10 +5,24 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 19:02:17 2017 Mathias
-** Last update Mon Jun 12 19:03:12 2017 Mathias
+** Last update Tue Jun 13 11:17:57 2017 mathias descoins
 */
 
 #include "parser.h"
+
+int check_line(char *tab, char *c)
+{
+  int i;
+
+  i = 0;
+  while (tab[i + 1] != '\0')
+    {
+      if (my_cmp_mod(&tab[i], c) == 0)
+        return (0);
+      i += 1;
+    }
+  return (1);
+}
 
 void is_reaction_equation_sequel(char **tab, int i, int *check)
 {
@@ -16,7 +30,9 @@ void is_reaction_equation_sequel(char **tab, int i, int *check)
 
   if (*check == 1)
     write(1, " + ", 3);
-  k = 38;
+  k = 0;
+  while (my_cmp_mod(&tab[i][++k], "species=\"") != 0);
+  k += 10;
   while (tab[i][k] != '"')
     {
       write(1, &tab[i][k], 1);
@@ -43,7 +59,7 @@ void is_reaction_equation(char **tab, int i)
   i += 2;
   while (my_cmp_mod(tab[i], "</listOfProducts>") != 0)
     {
-      if (my_cmp_mod(tab[i], "<speciesReference stoichiometry=") == 0)
+      if (my_cmp_mod(tab[i], "<speciesReference ") == 0)
 	is_reaction_equation_sequel(tab, i, &check);
       if (my_cmp_mod(tab[i], "</listOfReactants>") == 0)
 	{
@@ -71,7 +87,7 @@ void is_reaction_sequel(char **tab, char *str, int i)
 	  k = 0;
 	  while (my_cmp_mod(&tab[i][++k], "species=\"") != 0);
 	  write(1, "----->", 6);
-	  k += 8;
+	  k += 10;
 	  while (tab[i][++k] != '"')
 	    write(1, &tab[i][k], 1);
 	  write(1, "\n", 1);

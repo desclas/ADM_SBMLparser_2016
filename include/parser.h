@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:50:27 2017 Mathias
-** Last update Mon Jun 12 19:07:35 2017 Mathias
+** Last update Tue Jun 13 11:18:47 2017 mathias descoins
 */
 
 #ifndef PARSER_H_
@@ -35,5 +35,6 @@ int what_is_it(char **tab, char *str);
 void is_species(char **tab, char *str);
 void is_reaction(char **tab, char *search, int arge);
 void algo(char **tab, char *search, int arge);
+int check_line(char *tab, char *c);
 
 #endif /* !PARSER_H_ */

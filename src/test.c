@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 10:21:19 2017 Mathias
-** Last update Tue Jun 13 11:39:05 2017 Mathias
+** Last update Tue Jun 13 09:45:17 2017 mathias descoins
 */
 
 #include "parser.h"
@@ -32,7 +32,6 @@ void option_sequel(char **ac, char **tab)
     printf("en construction\n");
   else
     free_tab(tab, 84);
-  free_tab(tab, 0);
 }
 
 void option(int av, char **ac, char **tab)
@@ -61,6 +60,7 @@ void option(int av, char **ac, char **tab)
     }
   else if (av == 6)
     option_sequel(ac, tab);
+  free_tab(tab, 0);
 }
 
 int main(int av, char **ac)
@@ -79,7 +79,6 @@ int main(int av, char **ac)
 	return (84);
       while ((str = my_gnl(fd)) != NULL)
 	tab = append_chartab(tab, str);
-      int i = -1;
       close(fd);
       sort_file(tab);
       option(av, ac, tab);

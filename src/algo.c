@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 19:04:05 2017 Mathias
-** Last update Mon Jun 12 19:04:23 2017 Mathias
+** Last update Tue Jun 13 11:08:43 2017 mathias descoins
 */
 
 #include "parser.h"
@@ -32,10 +32,10 @@ void is_ref_sequel(char **tab, int i)
 
   nb = my_getdigit_until(&tab[i][38], '"');
   write(1, "----->", 6);
-  while (my_cmp_mod(tab[--i], "<reaction reversible=") != 0);
+  while (my_cmp_mod(tab[--i], "<reaction ") != 0);
   k = -1;
   while (my_cmp_mod(&tab[i][++k], "id=\"") != 0);
-  k += 4;
+  k += 5;
   while (tab[i][k] != '"')
     {
       write(1, &tab[i][k], 1);

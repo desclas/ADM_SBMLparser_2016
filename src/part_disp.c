@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:58:19 2017 Mathias
-** Last update Tue Jun 13 08:56:33 2017 Mathias
+** Last update Tue Jun 13 11:18:55 2017 mathias descoins
 */
 
 #include "parser.h"
@@ -94,16 +94,16 @@ void is_species(char **tab, char *str)
   int k;
 
   inistr(c, 100);
-  sprintf(c, "<species compartment=\"%s\"", str);
+  sprintf(c, "compartment=\"%s\"", str);
   printf("Liste of species in compartment %s\n", str);
   i = 0;
   while (tab[i] != NULL)
     {
       k = -1;
-      if (my_cmp_mod(tab[i], c) == 0)
+      if (check_line(tab[i], c) == 0)
 	{
 	  while (my_cmp_mod(&tab[i][++k], "name=\"") != 0);
-	  k += 6;
+	  k += 7;
 	  write(1, "----->", 6);
 	  while (tab[i][k] != '"')
 	    {
