@@ -60,7 +60,7 @@ int is_alphanum(char c)
   return (0);
 }
 
-char **my_strtowordtab_synthesis(char *str)
+char **my_strtowordtab_synthesis(char const *str)
 {
   char **tab;
   char *res;
