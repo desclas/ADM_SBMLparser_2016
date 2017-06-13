@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:50:27 2017 Mathias
-** Last update Tue Jun 13 11:18:47 2017 mathias descoins
+** Last update Tue Jun 13 15:58:18 2017 Mathias
 */
 
 #ifndef PARSER_H_
@@ -23,6 +23,13 @@
 # define REFERENCE 1
 # define FAIL -1
 
+typedef struct s_elem
+{
+  char *name;
+  char **part;
+}		t_elem;
+
+int my_len(char *str);
 char *my_gnl(int fd);
 void inistr(char *str,int max);
 char **append_chartab(char **tab, char *str);
@@ -30,11 +37,14 @@ void sort_file(char **tab);
 int my_cmp_mod(char *tab, char *str);
 void sort_tab_until(char **tab, int begin, int end);
 int help(char *name);
-void disp_auto(void);
+void disp_auto(char **tab);
 int what_is_it(char **tab, char *str);
 void is_species(char **tab, char *str);
 void is_reaction(char **tab, char *search, int arge);
 void algo(char **tab, char *search, int arge);
 int check_line(char *tab, char *c);
+char *append_char(char *str, char c);
+void add_elem(t_elem **elem, char *str, int *count);
+t_elem **append_elem(t_elem **elem);
 
 #endif /* !PARSER_H_ */

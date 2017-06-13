@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:58:19 2017 Mathias
-** Last update Tue Jun 13 11:18:55 2017 mathias descoins
+** Last update Tue Jun 13 15:55:19 2017 Mathias
 */
 
 #include "parser.h"
@@ -47,15 +47,6 @@ int help(char *name)
   printf("(ignored otherwise)\n\t-json\ttransform the file into a JSON");
   printf(" file\n");
   return (0);
-}
-
-void disp_auto(void)
-{
-  printf("compartment\n----->id\n----->name\nmodel\n----->id\n----->name\n");
-  printf("reaction\n----->id\n----->name\n----->reversible\nsbml\n");
-  printf("----->level\n----->version\n----->xmlns\nspecies\n");
-  printf("----->compartment\n----->id\n----->name\nspeciesReference\n");
-  printf("----->species\n----->stoichiometry\n");
 }
 
 int what_is_it(char **tab, char *str)

@@ -5,7 +5,7 @@
 ## Login   <mathias.descoin@epitech.eu@epitech.net>
 ## 
 ## Started on  Mon Jun 12 10:03:34 2017 Mathias
-## Last update Mon Jun 12 19:10:01 2017 Mathias
+## Last update Tue Jun 13 15:56:59 2017 Mathias
 ##
 
 SRC	=	src/test.c		\
@@ -13,7 +13,9 @@ SRC	=	src/test.c		\
 		src/gnl.c		\
 		src/is_reaction.c	\
 		src/part_disp.c		\
-		src/sort_file.c
+		src/sort_file.c		\
+		src/add_elem.c		\
+		src/disp_elem.c
 
 OBJ	=	$(SRC:.c=.o)
 
