@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 10:21:19 2017 Mathias
-** Last update Tue Jun 13 09:37:02 2017 Mathias
+** Last update Tue Jun 13 11:39:05 2017 Mathias
 */
 
 #include "parser.h"
@@ -79,6 +79,7 @@ int main(int av, char **ac)
 	return (84);
       while ((str = my_gnl(fd)) != NULL)
 	tab = append_chartab(tab, str);
+      int i = -1;
       close(fd);
       sort_file(tab);
       option(av, ac, tab);

@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:54:54 2017 Mathias
-** Last update Mon Jun 12 19:07:48 2017 Mathias
+** Last update Tue Jun 13 11:09:11 2017 Mathias
 */
 
 #include "parser.h"
@@ -17,8 +17,8 @@ int my_cmp_mod(char *tab, char *str)
 
   i = 0;
   count = 0;
-  if (tab[i] == '\t')
-    while (tab[++i] == '\t');
+  if (tab[i] == '\t' || tab[i] == ' ')
+    while (tab[++i] == '\t' || tab[i] == ' ');
   while (tab[i] != '\0' && str[count] != '\0')
     {
       if (tab[i] != str[count])
