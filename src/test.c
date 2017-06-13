@@ -5,10 +5,22 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 10:21:19 2017 Mathias
-** Last update Tue Jun 13 13:37:03 2017 Mathias
+** Last update Tue Jun 13 16:28:59 2017 Mathias
 */
 
 #include "parser.h"
+
+int t_or_f(char *str)
+{
+  int i;
+
+  i = 0;
+  while (str[++i] != '\0' && my_cmp_mod(&str[i], "reversible=") != 0);
+  i += 12;
+  if (my_cmp_mod(&str[i], "False") == 0)
+    return (0);
+  return (1);
+}
 
 void free_tab(char **tab, int st)
 {
@@ -41,7 +53,7 @@ void option(int av, char **ac, char **tab)
   else if (av == 5)
     {
       if (my_cmp_mod(ac[4], "-e") == 0 && my_cmp_mod(ac[2], "-i") == 0 &&
-	  my_cmp_mod(ac[3], "-e") != 0 && my_cmp_mod(ac[3], "-json") == 0)
+	  my_cmp_mod(ac[3], "-e") != 0 && my_cmp_mod(ac[3], "-json") != 0)
 	algo(tab, ac[3], 1);
       else if (my_cmp_mod(ac[4], "-json") == 0 && my_cmp_mod(ac[2], "-i") == 0
 	       && my_cmp_mod(ac[3], "-e") != 0 &&
