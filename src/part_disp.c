@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:58:19 2017 Mathias
-** Last update Mon Jun 12 19:00:20 2017 Mathias
+** Last update Tue Jun 13 08:56:33 2017 Mathias
 */
 
 #include "parser.h"
@@ -46,6 +46,7 @@ int help(char *name)
   printf(" the equation if a reaction ID is given as argument ");
   printf("(ignored otherwise)\n\t-json\ttransform the file into a JSON");
   printf(" file\n");
+  return (0);
 }
 
 void disp_auto(void)
@@ -62,8 +63,8 @@ int what_is_it(char **tab, char *str)
   int i;
   int k;
 
-  i = 0;
-  while (tab[i] != NULL)
+  i = -1;
+  while (tab[++i] != NULL)
     {
       k = -1;
       while (tab[i][++k] != '\0')
@@ -82,7 +83,6 @@ int what_is_it(char **tab, char *str)
 	  else if (my_cmp_mod(&tab[i][k], "compartment") == 0)
 	    return (SPECIES);
 	}
-      i += 1;
     }
   return (FAIL);
 }
