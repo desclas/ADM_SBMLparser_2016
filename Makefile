@@ -5,7 +5,7 @@
 ## Login   <mathias.descoin@epitech.eu@epitech.net>
 ## 
 ## Started on  Mon Jun 12 10:03:34 2017 Mathias
-## Last update Tue Jun 13 15:56:59 2017 Mathias
+## Last update Tue Jun 13 17:48:37 2017 Mathias
 ##
 
 SRC	=	src/test.c		\
@@ -21,7 +21,7 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	SBMLparser
 
-CFLAGS	=	-Iinclude -g3
+CFLAGS	=	-Iinclude
 
 all: $(NAME)
 
