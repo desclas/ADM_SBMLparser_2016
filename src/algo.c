@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 19:04:05 2017 Mathias
-** Last update Wed Jun 14 11:26:14 2017 Mathias
+** Last update Wed Jun 14 12:54:20 2017 Mathias
 */
 
 #include "parser.h"
@@ -82,7 +82,7 @@ void is_nothing(char **tab)
       if (my_cmp_mod(tab[i], "<species compartment=") == 0)
 	{
 	  while (my_cmp_mod(&tab[i][++k], "name=\"") != 0);
-	  k += 6;
+	  k += 7;
 	  printf("----->");
 	  while (tab[i][k] != '"')
 	    {

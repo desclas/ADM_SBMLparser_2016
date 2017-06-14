@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 10:21:19 2017 Mathias
-** Last update Wed Jun 14 10:24:29 2017 Mathias
+** Last update Wed Jun 14 12:50:39 2017 Mathias
 */
 
 #include "parser.h"
@@ -36,43 +36,49 @@ void free_tab(char **tab, int st)
   exit(st);
 }
 
-void option_sequel(char **ac, char **tab)
+void option_sequel(char **ac, char **tab, int *opt)
 {
-  if (my_cmp_mod(ac[2], "-i") == 0 && my_cmp_mod(ac[3], "-e") != 0 &&
-      my_cmp_mod(ac[3], "-json") != 0 && my_cmp_mod(ac[4], "-e") == 0 &&
-      my_cmp_mod(ac[5], "-json") == 0)
+  if (opt[3] == 1)
     printf("en construction\n");
+  else if (opt[0] == 1)
+    {
+      if (opt[1] == 0)
+	disp_auto(tab);
+      else
+	{
+	  if (opt[2] == 0)
+	    algo(tab, ac[opt[1]], 0);
+	  else
+	    algo(tab, ac[opt[1]], 1);
+	}
+    }
   else
-    free_tab(tab, 84);
+    disp_auto(tab);
 }
 
 void option(int av, char **ac, char **tab)
 {
-  if (av == 2 || (av == 3 && my_cmp_mod(ac[2], "-i") == 0))
-    disp_auto(tab);
-  else if (av == 5)
-    {
-      if (my_cmp_mod(ac[4], "-e") == 0 && my_cmp_mod(ac[2], "-i") == 0 &&
-	  my_cmp_mod(ac[3], "-e") != 0 && my_cmp_mod(ac[3], "-json") != 0)
-	algo(tab, ac[3], 1);
-      else if (my_cmp_mod(ac[4], "-json") == 0 && my_cmp_mod(ac[2], "-i") == 0
-	       && my_cmp_mod(ac[3], "-e") != 0 &&
-	       my_cmp_mod(ac[3], "-json") != 0)
-	printf("en construction\n");
-      else
-	free_tab(tab, 84);
-    }
-  else if (av == 4)
-    {
-      if (my_cmp_mod(ac[2], "-i") == 0 && my_cmp_mod(ac[3], "-e") != 0 &&
-	  my_cmp_mod(ac[3], "-json") != 0)
-	algo(tab, ac[3], 0);
-      else
-	free_tab(tab, 84);
-    }
-  else if (av == 6)
-    option_sequel(ac, tab);
-  free_tab(tab, 0);
+  int opt[4];
+  int i;
+
+  opt[0] = 0;
+  opt[1] = 0;
+  opt[2] = 0;
+  opt[3] = 0;
+  i = 0;
+  while (++i != av)
+    if (my_cmp_mod(ac[i], "-i") == 0)
+      {
+	opt[0] = 1;
+	if (i != av - 1 && my_cmp_mod(ac[i + 1], "-e") != 0 &&
+	    my_cmp_mod(ac[i + 1], "-json") != 0)
+	  opt[1] = i + 1;
+      }
+    else if (my_cmp_mod(ac[i], "-e") == 0)
+      opt[2] = 1;
+    else if (my_cmp_mod(ac[i], "-json") == 0)
+      opt[3] = 1;
+  option_sequel(ac, tab, opt);
 }
 
 int main(int av, char **ac)
