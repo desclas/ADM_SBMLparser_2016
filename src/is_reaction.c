@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 19:02:17 2017 Mathias
-** Last update Tue Jun 13 16:29:07 2017 Mathias
+** Last update Wed Jun 14 07:43:37 2017 mathias descoins
 */
 
 #include "parser.h"
@@ -29,13 +29,19 @@ void is_reaction_equation_sequel(char **tab, int i, int *check)
   int k;
 
   if (*check == 1)
-    write(1, " + ", 3);
+    printf(" + ");
   k = 0;
+  while (my_cmp_mod(&tab[i][++k], "stoichiometry=\"") != 0);
+  k += 15;
+  while (tab[i][++k] != '"')
+    printf("%c", tab[i][k]);
+  k = 0;
+  printf(" ");
   while (my_cmp_mod(&tab[i][++k], "species=\"") != 0);
   k += 10;
   while (tab[i][k] != '"')
     {
-      write(1, &tab[i][k], 1);
+      printf("%c", tab[i][k]);
       k += 1;
     }
   *check = 1;
@@ -48,7 +54,7 @@ void is_reaction_equation(char **tab, int i)
   int check;
 
   check = 0;
-  if (t_or_f(tab[i]) == 0)
+  if (t_or_f(tab[i]) != 0)
     rev = 0;
   else
     rev = 1;
@@ -61,13 +67,13 @@ void is_reaction_equation(char **tab, int i)
 	{
 	  check = 0;
 	  if (rev == 1)
-	    write(1, " <-> ", 5);
+	    printf(" <-> ");
 	  else
-	    write(1, " -> ", 4);
+	    printf(" -> ");
 	}
       i += 1;
     }
-  write(1, "\n", 1);
+  printf("\n");
 }
 
 void is_reaction_sequel(char **tab, char *str, int i)
@@ -82,11 +88,11 @@ void is_reaction_sequel(char **tab, char *str, int i)
 	{
 	  k = 0;
 	  while (my_cmp_mod(&tab[i][++k], "species=\"") != 0);
-	  write(1, "----->", 6);
+	  printf( "----->");
 	  k += 10;
 	  while (tab[i][++k] != '"')
-	    write(1, &tab[i][k], 1);
-	  write(1, "\n", 1);
+	    printf("%c", tab[i][k]);
+	  printf("\n");
 	}
       if (my_cmp_mod(tab[i], "<listOfProducts>") == 0)
 	printf("List of products of reaction %s\n", str);

@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:58:19 2017 Mathias
-** Last update Tue Jun 13 15:55:19 2017 Mathias
+** Last update Wed Jun 14 07:36:50 2017 mathias descoins
 */
 
 #include "parser.h"
@@ -95,13 +95,13 @@ void is_species(char **tab, char *str)
 	{
 	  while (my_cmp_mod(&tab[i][++k], "name=\"") != 0);
 	  k += 7;
-	  write(1, "----->", 6);
+	  printf("----->");
 	  while (tab[i][k] != '"')
 	    {
-	      write(1, &tab[i][k], 1);
+	      printf("%c", tab[i][k]);
 	      k += 1;
 	    }
-	  write(1, "\n", 1);
+	  printf("\n");
 	}
       i += 1;
     }

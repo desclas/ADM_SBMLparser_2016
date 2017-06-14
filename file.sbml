@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+OB<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1" >
 	<model name="Homo sapiens Glycolysis" id="Pathway146" >
 		<listOfCompartments>
@@ -11,7 +11,7 @@
 			<species compartment="Cytosol" name="Adenosine triphosphate" id="Compound414"/>
 		</listOfSpecies>
 		<listOfReactions>
-			<reaction reversible="false" name="Hexokinase-3" id="Reaction1232" >
+			<reaction reversible="false" compartement="clksok" name="Hexokinase-3" id="Reaction1232" >
 				<listOfReactants>
 					<speciesReference stoichiometry="1" species="Compound1851"/>
 					<speciesReference stoichiometry="1" species="Compound414"/>

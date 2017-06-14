@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 19:04:05 2017 Mathias
-** Last update Tue Jun 13 11:08:43 2017 mathias descoins
+** Last update Wed Jun 14 07:38:36 2017 mathias descoins
 */
 
 #include "parser.h"
@@ -31,14 +31,14 @@ void is_ref_sequel(char **tab, int i)
   int k;
 
   nb = my_getdigit_until(&tab[i][38], '"');
-  write(1, "----->", 6);
+  printf("----->");
   while (my_cmp_mod(tab[--i], "<reaction ") != 0);
   k = -1;
   while (my_cmp_mod(&tab[i][++k], "id=\"") != 0);
   k += 5;
   while (tab[i][k] != '"')
     {
-      write(1, &tab[i][k], 1);
+      printf("%c", tab[i][k]);
       k += 1;
     }
   printf(" (%d)\n", nb);
@@ -83,13 +83,13 @@ void is_nothing(char **tab)
 	{
 	  while (my_cmp_mod(&tab[i][++k], "name=\"") != 0);
 	  k += 6;
-	  write(1, "----->", 6);
+	  printf("----->");
 	  while (tab[i][k] != '"')
 	    {
-	      write(1, &tab[i][k], 1);
+	      printf("%c", tab[i][k]);
 	      k += 1;
 	    }
-	  write(1, "\n", 1);
+	  printf("\n");
 	}
       i += 1;
     }
