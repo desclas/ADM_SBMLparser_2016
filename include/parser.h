@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:50:27 2017 Mathias
-** Last update Wed Jun 14 11:33:41 2017 Mathias
+** Last update Wed Jun 14 16:35:12 2017 Mathias
 */
 
 #ifndef PARSER_H_
@@ -48,5 +48,6 @@ void add_elem(t_elem **elem, char *str, int *count);
 t_elem **append_elem(t_elem **elem);
 int t_or_f(char *str);
 char *have_reaction(char *tab);
+int safe(char *str);
 
 #endif /* !PARSER_H_ */

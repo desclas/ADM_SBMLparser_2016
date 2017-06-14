@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 19:02:17 2017 Mathias
-** Last update Wed Jun 14 11:33:46 2017 Mathias
+** Last update Wed Jun 14 16:39:57 2017 Mathias
 */
 
 #include "parser.h"
@@ -50,7 +50,6 @@ void is_reaction_equation_sequel(char **tab, int i, int *check)
 void is_reaction_equation(char **tab, int i)
 {
   int rev;
-  int k;
   int check;
 
   check = 0;

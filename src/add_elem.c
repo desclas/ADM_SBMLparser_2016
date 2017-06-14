@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Tue Jun 13 15:53:55 2017 Mathias
-** Last update Wed Jun 14 16:01:04 2017 Mathias
+** Last update Wed Jun 14 16:35:14 2017 Mathias
 */
 
 #include "parser.h"
@@ -99,4 +99,19 @@ char *have_reaction(char *tab)
       i += 1;
     }
   return (str);
+}
+
+int safe(char *str)
+{
+  int i;
+
+  i = -1;
+  while (str[++i] != '\0' && str[i] != '<');
+  while (str[i] != '\0')
+    {
+      if (str[i] == ' ')
+	return (0);
+      i += 1;
+    }
+  return (1);
 }

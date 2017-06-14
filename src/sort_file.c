@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:54:54 2017 Mathias
-** Last update Tue Jun 13 11:09:11 2017 Mathias
+** Last update Wed Jun 14 16:43:08 2017 Mathias
 */
 
 #include "parser.h"
@@ -75,6 +75,7 @@ void sort_file_final(char **tab)
 	      tmp = tab[k];
 	      while (--j != i)
 		tab[j] = tab[j - 1];
+	      tab[j] = tmp;
 	      i += 1;
 	      k += 1;
 	    }
@@ -102,6 +103,7 @@ void sort_file_sequel(char **tab)
 	      tmp = tab[k];
 	      while (--j != i)
 		tab[j] = tab[j - 1];
+	      tab[j] = tmp;
 	      i += 1;
 	      k += 1;
 	    }

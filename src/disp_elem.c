@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Tue Jun 13 15:51:58 2017 Mathias
-** Last update Wed Jun 14 16:04:05 2017 Mathias
+** Last update Wed Jun 14 16:35:18 2017 Mathias
 */
 
 #include "parser.h"
@@ -117,7 +117,7 @@ void disp_auto(char **tab)
   elem = malloc(sizeof(t_elem *));
   elem[0] = NULL;
   while (tab[++i] != NULL)
-    if (my_cmp_mod(tab[i], "</") != 0)
+    if (my_cmp_mod(tab[i], "</") != 0 && safe(tab[i]) == 0)
       add_elem((elem = append_elem(elem)) , tab[i], &count);
   disp_elem(elem);
 }
