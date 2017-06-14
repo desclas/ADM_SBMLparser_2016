@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:51:58 2017 Mathias
-** Last update Mon Jun 12 18:52:27 2017 Mathias
+** Last update Wed Jun 14 16:20:02 2017 Mathias
 */
 
 #include "parser.h"
@@ -75,7 +75,7 @@ char *my_gnl(int fd)
   char *str;
   char c;
   int k;
-  
+
   str = malloc(sizeof(char));
   str[0] = '\0';
   c = '\0';

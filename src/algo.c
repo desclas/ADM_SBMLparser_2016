@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 19:04:05 2017 Mathias
-** Last update Wed Jun 14 12:54:20 2017 Mathias
+** Last update Wed Jun 14 16:26:51 2017 Mathias
 */
 
 #include "parser.h"
@@ -30,7 +30,10 @@ void is_ref_sequel(char **tab, int i)
   int nb;
   int k;
 
-  nb = my_getdigit_until(&tab[i][38], '"');
+  k = -1;
+  while (my_cmp_mod(&tab[i][++k], "stoichiometry=\"") != 0);
+  k += 16;
+  nb = my_getdigit_until(&tab[i][k], '"');
   printf("----->");
   while (my_cmp_mod(tab[--i], "<reaction ") != 0);
   k = -1;

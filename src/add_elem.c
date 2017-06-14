@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Tue Jun 13 15:53:55 2017 Mathias
-** Last update Wed Jun 14 11:33:13 2017 Mathias
+** Last update Wed Jun 14 16:01:04 2017 Mathias
 */
 
 #include "parser.h"
@@ -68,7 +68,7 @@ void add_elem(t_elem **elem, char *str, int *count)
       *count += 1;
       i = -1;
       while (str[++i] != '<');
-      while (str[++i] != ' ' && str[i] != '\t')
+      while (str[i] != '\0' && str[++i] != ' ' && str[i] != '\t')
 	res = append_char(res, str[i]);
       elem[*count - 1]->name = res;
       elem[*count - 1]->part = malloc(sizeof(char *));
