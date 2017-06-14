@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 10:21:19 2017 Mathias
-** Last update Tue Jun 13 16:28:59 2017 Mathias
+** Last update Wed Jun 14 10:24:29 2017 Mathias
 */
 
 #include "parser.h"
@@ -48,7 +48,7 @@ void option_sequel(char **ac, char **tab)
 
 void option(int av, char **ac, char **tab)
 {
-  if (av == 2)
+  if (av == 2 || (av == 3 && my_cmp_mod(ac[2], "-i") == 0))
     disp_auto(tab);
   else if (av == 5)
     {
