@@ -54,7 +54,7 @@ char *append_char(char *str, char c)
 
 int is_alphanum(char c)
 {
-  if (!(c <= 58 && c >= 47) && !(c <= 122 && c >= 97) && !(c <= 90 && c >= 65)
+  if (!(c <= 57 && c >= 48) && !(c <= 122 && c >= 97) && !(c <= 90 && c >= 65)
       && c != '\0')
     return (1);
   return (0);
