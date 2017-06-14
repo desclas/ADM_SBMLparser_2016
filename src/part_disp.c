@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:58:19 2017 Mathias
-** Last update Wed Jun 14 07:36:50 2017 mathias descoins
+** Last update Wed Jun 14 10:03:17 2017 Mathias
 */
 
 #include "parser.h"
@@ -41,10 +41,10 @@ void sort_tab_until(char **tab, int begin, int end)
 int help(char *name)
 {
   printf("USAGE\n\t%s SBMLfile [-i ID [-e]] [-json]\n\nDESCRIPTION\n", name);
-  printf("\tSBMLfileSMBL file\n\t-i ID\tid of compartment, reaction or ");
-  printf("product to be extracted (ignored if uncorrect)\n\t-e\tprint");
-  printf(" the equation if a reaction ID is given as argument ");
-  printf("(ignored otherwise)\n\t-json\ttransform the file into a JSON");
+  printf("\tSBMLfileSMBL file\n\t-i ID\tid of compartment, reaction or p");
+  printf("roduct to be extracted\n\t\t(ignored if uncorrect)\n\t-e\tprin");
+  printf("t the equation if a reaction \E[3mID\E[0m is given as argument\n\t");
+  printf("\t(ignored otherwise)\n\t-json\ttransform the file into a JSON");
   printf(" file\n");
   return (0);
 }
