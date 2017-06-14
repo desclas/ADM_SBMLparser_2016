@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 10:21:19 2017 Mathias
-** Last update Wed Jun 14 12:50:39 2017 Mathias
+** Last update Wed Jun 14 16:52:00 2017 Mathias
 */
 
 #include "parser.h"
@@ -16,8 +16,8 @@ int t_or_f(char *str)
 
   i = 0;
   while (str[++i] != '\0' && my_cmp_mod(&str[i], "reversible=") != 0);
-  i += 12;
-  if (my_cmp_mod(&str[i], "False") == 0)
+  i += 13;
+  if (my_cmp_mod(&str[i], "false") == 0)
     return (0);
   return (1);
 }

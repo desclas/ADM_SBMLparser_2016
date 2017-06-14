@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 19:02:17 2017 Mathias
-** Last update Wed Jun 14 16:39:57 2017 Mathias
+** Last update Wed Jun 14 16:52:56 2017 Mathias
 */
 
 #include "parser.h"
@@ -53,7 +53,7 @@ void is_reaction_equation(char **tab, int i)
   int check;
 
   check = 0;
-  if (t_or_f(tab[i]) != 0)
+  if (t_or_f(tab[i]) == 0)
     rev = 0;
   else
     rev = 1;
