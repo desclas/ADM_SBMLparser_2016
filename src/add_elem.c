@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Tue Jun 13 15:53:55 2017 Mathias
-** Last update Tue Jun 13 15:55:18 2017 Mathias
+** Last update Wed Jun 14 11:33:13 2017 Mathias
 */
 
 #include "parser.h"
@@ -81,4 +81,22 @@ void add_elem(t_elem **elem, char *str, int *count)
       elem[*count] = NULL;
       free(res);
     }
+}
+
+char *have_reaction(char *tab)
+{
+  int i;
+  char *str;
+
+  i = 0;
+  str = malloc(sizeof(char));
+  str[0] = '\0';
+  while (my_cmp_mod(&tab[++i], "id=\"") != 0);
+  i += 5;
+  while (tab[i] != '"')
+    {
+      str = append_char(str, tab[i]);
+      i += 1;
+    }
+  return (str);
 }

@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 18:58:19 2017 Mathias
-** Last update Wed Jun 14 10:03:17 2017 Mathias
+** Last update Wed Jun 14 11:29:12 2017 Mathias
 */
 
 #include "parser.h"
@@ -63,8 +63,8 @@ int what_is_it(char **tab, char *str)
 	  break;
       if (my_cmp_mod(&tab[i][k], str) == 0)
 	{
-	  while (tab[i][--k] != '=');
-	  while (tab[i][--k] != ' ');
+	  while (k != 0 && tab[i][--k] != '=');
+	  while (k != 0 && tab[i][--k] != ' ');
 	  k += 1;
 	  if (my_cmp_mod(&tab[i][k], "id") == 0 &&
 	      my_cmp_mod(tab[i], "<reaction ") == 0)

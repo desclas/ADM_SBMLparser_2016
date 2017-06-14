@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 19:04:05 2017 Mathias
-** Last update Wed Jun 14 07:38:36 2017 mathias descoins
+** Last update Wed Jun 14 11:26:14 2017 Mathias
 */
 
 #include "parser.h"
@@ -52,7 +52,7 @@ void is_ref(char **tab, char *str)
 
   inistr(c, 100);
   i = 0;
-  printf("Liste of raactions consuming species %s (quantities)\n", str);
+  printf("Liste of reactions consuming species %s (quantities)\n", str);
   sprintf(c, "species=\"%s\"", str);
   while (tab[i] != NULL)
     {

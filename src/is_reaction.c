@@ -5,7 +5,7 @@
 ** Login   <mathias.descoin@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Jun 12 19:02:17 2017 Mathias
-** Last update Wed Jun 14 07:43:37 2017 mathias descoins
+** Last update Wed Jun 14 11:33:46 2017 Mathias
 */
 
 #include "parser.h"
@@ -76,11 +76,11 @@ void is_reaction_equation(char **tab, int i)
   printf("\n");
 }
 
-void is_reaction_sequel(char **tab, char *str, int i)
+void is_reaction_sequel(char **tab, char *name, int i)
 {
   int k;
 
-  printf("List of reactants of reaction %s\n", str);
+  printf("List of reactants of reaction %s\n", name);
   i += 2;
   while (my_cmp_mod(tab[i], "</listOfProducts>") != 0)
     {
@@ -89,15 +89,16 @@ void is_reaction_sequel(char **tab, char *str, int i)
 	  k = 0;
 	  while (my_cmp_mod(&tab[i][++k], "species=\"") != 0);
 	  printf( "----->");
-	  k += 10;
+	  k += 9;
 	  while (tab[i][++k] != '"')
 	    printf("%c", tab[i][k]);
 	  printf("\n");
 	}
       if (my_cmp_mod(tab[i], "<listOfProducts>") == 0)
-	printf("List of products of reaction %s\n", str);
+	printf("List of products of reaction %s\n", name);
       i += 1;
     }
+  free(name);
 }
 
 void is_reaction(char **tab, char *search, int arge)
@@ -107,7 +108,7 @@ void is_reaction(char **tab, char *search, int arge)
   int k;
 
   inistr(c, 100);
-  sprintf(c, "id=\"%s\"", search);
+  sprintf(c, "id=\"%s", search);
   i = 0;
   while (tab[i] != NULL)
     {
@@ -119,11 +120,12 @@ void is_reaction(char **tab, char *search, int arge)
 	  k += 1;
 	}
       if (my_cmp_mod(&tab[i][k], c) == 0)
-	break;
+	{
+	  if (arge == 1)
+	    is_reaction_equation(tab, i);
+	  else
+	    is_reaction_sequel(tab, have_reaction(tab[i]), i);
+	}
       i += 1;
     }
-  if (arge == 1)
-    is_reaction_equation(tab, i);
-  else
-    is_reaction_sequel(tab, search, i);
 }
